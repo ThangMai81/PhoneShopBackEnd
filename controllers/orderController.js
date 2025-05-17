@@ -93,10 +93,10 @@ exports.placeOrder = async (req, res) => {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       service: "gmail",
-      secure: true, // true for 465, false for 587
+      secure: true, // true for 465, false for 587, using SSL
       auth: {
         user: email,
-        pass: "gwwfbiidfzacbooj", // Use App Password for Gmail
+        pass: "yhweijplsnouubis", // Use App Password for Gmail
       },
     });
 
