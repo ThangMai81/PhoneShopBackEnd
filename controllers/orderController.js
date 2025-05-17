@@ -91,10 +91,12 @@ exports.placeOrder = async (req, res) => {
 
     // Send email using nodemailer
     const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
       service: "gmail",
+      secure: true, // true for 465, false for 587
       auth: {
         user: email,
-        pass: "gwwf biid fzac booj", // Use App Password for Gmail
+        pass: "gwwfbiidfzacbooj", // Use App Password for Gmail
       },
     });
 
@@ -238,5 +240,3 @@ exports.getOrderById = async (req, res, next) => {
     }
   }
 };
-
-
