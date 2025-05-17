@@ -15,6 +15,7 @@ const corsOptions = {
     "http://localhost:3001",
     "http://localhost:3000",
     "https://thangmai81.github.io",
+    "https://thangmai81.github.io/",
   ],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
