@@ -96,8 +96,10 @@ exports.placeOrder = async (req, res) => {
       secure: true, // true for 465, false for 587, using SSL
       auth: {
         user: email,
-        pass: "yhweijplsnouubis", // Use App Password for Gmail
+        pass: process.env.GMAIL_APP_PASS, // Use App Password for Gmail
       },
+      logger: true,
+      debug: true,
     });
 
     const mailOptions = {
