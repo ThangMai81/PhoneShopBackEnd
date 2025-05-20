@@ -19,6 +19,7 @@ const corsOptions = {
   ],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
   optionsSuccessStatus: 204, // cho preflight trả về 204 thay vì 200
 };
 
