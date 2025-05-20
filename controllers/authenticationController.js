@@ -44,9 +44,14 @@ exports.signUp = async (req, res, next) => {
       "jwt_secret_key", // Replace with an environment variable in production like this process.env.JWT_SECRET
       { expiresIn: "1h" }
     );
+    res.cookie("auth-token", token, {
+      httpOnly: false,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict", // or "Lax" depending on use case
+      maxAge: 60 * 60 * 1000, // 1 hour
+    });
     res.status(200).json({
       message: "Signup successful.",
-      token: token,
     });
   } catch (err) {
     console.error(err);
@@ -91,10 +96,16 @@ exports.signIn = async (req, res, next) => {
       "jwt_secret_key", // Replace with process.env.JWT_SECRET in production
       { expiresIn: "1h" }
     );
-    console.log("token: ", token);
+
+    res.cookie("auth-token", token, {
+      httpOnly: false,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict", // or "Lax" depending on use case
+      maxAge: 60 * 60 * 1000, // 1 hour
+    });
+
     res.status(200).json({
       message: "Signin successful.",
-      token: token,
       role: user.role,
     });
   } catch (err) {
